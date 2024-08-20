@@ -2,12 +2,14 @@
 
 <div {{ $props.only(['class']).toAttrs() }}>
     @if(label)
-     <label class="form-label" :for="id">{{ label }}:</label>
+     <label class="form-label" for="{{ id }}">{{ label }}:</label>
     @end
 
     <input id="{{ id }}" {{ $props.except(['class']).toAttrs() }} class="form-input {{ error ? 'error' : '' }}" type="{{ type ?? 'text' }}" />
 
-    @if(error)
-        <div  class="form-error">{{ error }}</div>
+    @if(name)
+        @inputError(name)
+            <div  class="form-error">{{ $messages[0] }}</div>
+        @end
     @end
 </div>
