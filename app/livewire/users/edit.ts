@@ -1,11 +1,12 @@
 import User from '#models/user'
-import { Component } from 'adonisjs-livewire'
+import { Component, title } from 'adonisjs-livewire'
 
+@title('Edit User')
 export default class Edit extends Component {
   declare id: number
 
-  mount({ user }: any) {
-    this.id = user
+  mount({ id }: any) {
+    this.id = id
   }
 
   async render() {
