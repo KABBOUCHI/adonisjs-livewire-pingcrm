@@ -9,4 +9,10 @@
 
 import router from '@adonisjs/core/services/router'
 
-router.on('/').render('pages/home')
+router.group(() => {
+  router.livewire('/', 'dashboard')
+  router.livewire('/organizations')
+  router.livewire('/contacts')
+  router.livewire('/reports')
+})
+router.livewire('/login')

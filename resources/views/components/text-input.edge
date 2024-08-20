@@ -1,0 +1,13 @@
+@let(id = Math.random().toString(36).substring(7))
+
+<div {{ $props.only(['class']).toAttrs() }}>
+    @if(label)
+     <label class="form-label" :for="id">{{ label }}:</label>
+    @end
+
+    <input id="{{ id }}" {{ $props.except(['class']).toAttrs() }} class="form-input {{ error ? 'error' : '' }}" type="{{ type ?? 'text' }}" />
+
+    @if(error)
+        <div  class="form-error">{{ error }}</div>
+    @end
+</div>
