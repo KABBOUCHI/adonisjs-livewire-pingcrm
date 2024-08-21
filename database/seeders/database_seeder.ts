@@ -4,8 +4,13 @@ import Organization from '#models/organization'
 import User from '#models/user'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 import { faker } from '@faker-js/faker'
+import app from '@adonisjs/core/services/app'
+
 export default class extends BaseSeeder {
   async run() {
+    const ace = await app.container.make('ace')
+    await ace.exec('migration:fresh', ['--force'])
+
     const account = await Account.create({ name: 'Acme Corporation' })
 
     await User.create({
