@@ -50,4 +50,4 @@ You're ready to go! Visit Ping CRM in your browser, and login with:
 
 ## Credits
 
-- [InertiaPingCRM](https://github.com/inertiajs/pingcrm)
+- [Inertia PingCRM](https://github.com/inertiajs/pingcrm)
