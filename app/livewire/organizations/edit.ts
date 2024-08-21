@@ -55,6 +55,15 @@ export default class Edit extends Component {
     this.redirect('/organizations')
   }
 
+  async destroy() {
+    await this.organization.delete()
+
+    this.ctx.session.flash('success', 'Contact deleted.')
+
+    this.skipRender()
+    this.redirect('/organization')
+  }
+
   async render() {
     return this.view.render('livewire/organizations/edit')
   }

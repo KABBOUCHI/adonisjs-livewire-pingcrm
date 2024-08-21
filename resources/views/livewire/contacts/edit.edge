@@ -31,7 +31,14 @@
         <x-text-input wire:model="form.postalCode" :label="postalCode" class="pb-8 pr-6 w-full lg:w-1/2" label="Postal code" />
     </div>
     <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-        <x-loading-button class="btn-indigo" type="submit">Update Organization</x-loading-button>
+         <button class="text-red-600 hover:underline" tabindex="-1" type="button"
+            wire:click="destroy"
+            wire:confirm="Are you sure you want to delete this contact?"
+            >
+            Delete Contact
+         </button>
+
+        <x-loading-button class="btn-indigo ml-auto" type="submit">Update Organization</x-loading-button>
     </div>
     </form>
 </div>
