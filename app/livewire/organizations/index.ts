@@ -1,20 +1,30 @@
 import Organization from '#models/organization'
-import { Component, title } from 'adonisjs-livewire'
+import { Component, title, url } from 'adonisjs-livewire'
 
 @title('Organizations')
 export default class Index extends Component {
-  form = {
+  @url()
+  page = 1
+
+  setPage(page: number) {
+    this.page = page
+  }
+
+  filters: any = {
     search: '',
   }
 
   reset() {
-    this.form.search = ''
+    this.filters = {
+      search: '',
+    }
   }
-
   async render() {
     const organizations = await Organization.query()
-      .if(this.form.search, (q) => q.where('name', 'LIKE', `%${this.form.search}%`))
-      .paginate(1, 10)
+      .withScopes((s) => s.filter(this.filters))
+      .paginate(this.page, 10)
+
+    organizations.baseUrl('/organizations')
 
     return this.view.render('livewire/organizations/index', {
       organizations,

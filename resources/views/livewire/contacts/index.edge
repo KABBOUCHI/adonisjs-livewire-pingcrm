@@ -2,7 +2,7 @@
     <h1 class="mb-8 text-3xl font-bold">Contacts</h1>
 
     <div class="flex items-center justify-between mb-6">
-      <x-search-filter wire:model.live="form.search" class="mr-4 w-full max-w-md" />
+      <x-search-filter wire:model.live="filters.search" class="mr-4 w-full max-w-md" />
 
       <a class="btn-indigo" wire:navigate href="/contacts/create">
         <span>Create</span>
@@ -58,5 +58,5 @@
         </tbody>
       </table>
     </div>
-    <!-- <pagination class="mt-6" :links="contacts.links" /> -->
+    <x-pagination class="mt-6" :paginator="contacts" />
 </div>

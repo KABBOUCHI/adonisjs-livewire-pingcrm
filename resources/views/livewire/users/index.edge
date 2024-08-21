@@ -3,12 +3,14 @@
 
     <div class="flex items-center justify-between mb-6">
       <x-search-filter wire:model.live="filters.search" class="mr-4 w-full max-w-md">
+        <x-slot name="dropdown">
            <label class="block text-gray-700">Role:</label>
             <select wire:model.live="filters.role" class="form-select mt-1 w-full">
                 <option value="" />
                 <option value="user">User</option>
                 <option value="owner">Owner</option>
             </select>
+        </x-slot>
       </x-search-filter>
 
       <a class="btn-indigo" wire:navigate href="/users/create">
@@ -57,5 +59,5 @@
         </tbody>
       </table>
     </div>
-    <!-- <pagination class="mt-6" :links="users.links" /> -->
+    <x-pagination class="mt-6" :paginator="users" />
 </div>

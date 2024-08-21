@@ -1,29 +1,32 @@
 import Contact from '#models/contact'
-import { Component, title } from 'adonisjs-livewire'
+import { Component, title, url } from 'adonisjs-livewire'
 
 @title('Contacts')
 export default class Index extends Component {
-  form = {
+  @url()
+  page = 1
+
+  setPage(page: number) {
+    this.page = page
+  }
+
+  filters: any = {
     search: '',
   }
 
   reset() {
-    this.form.search = ''
+    this.filters = {
+      search: '',
+    }
   }
 
   async render() {
     const contacts = await Contact.query()
       .preload('organization')
-      .if(this.form.search, (q) =>
-        q.where((sq) => {
-          sq.where('first_name', 'LIKE', `%${this.form.search}%`).orWhere(
-            'last_name',
-            'LIKE',
-            `%${this.form.search}%`
-          )
-        })
-      )
-      .paginate(1, 10)
+      .withScopes((s) => s.filter(this.filters))
+      .paginate(this.page, 10)
+
+    contacts.baseUrl('/contacts')
 
     return this.view.render('livewire/contacts/index', {
       contacts,
