@@ -1,6 +1,6 @@
 import User from '#models/user'
 import vine from '@vinejs/vine'
-import { Component, title } from 'adonisjs-livewire'
+import { bind, Component, title } from 'adonisjs-livewire'
 
 const validator = vine.compile(
   vine.object({
@@ -22,8 +22,9 @@ export default class Edit extends Component {
     password: null,
   }
 
-  async mount({ id }: any) {
-    this.user = await User.findOrFail(id)
+  @bind()
+  async mount({}, user: User) {
+    this.user = user
 
     this.form = {
       fullName: this.user.fullName,

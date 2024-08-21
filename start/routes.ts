@@ -22,7 +22,7 @@ router
     router.livewire('/reports')
     router.livewire('/users')
     router.livewire('/users/create')
-    router.livewire('/users/:id/edit', 'users.edit')
+    router.livewire('/users/:user/edit', 'users.edit')
 
     router.get('/logout', async ({ auth, response }) => {
       await auth.use('web').logout()
