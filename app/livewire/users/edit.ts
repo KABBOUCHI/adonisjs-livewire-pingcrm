@@ -11,7 +11,7 @@ const validator = vine.compile(
   })
 )
 
-@title('Edit Organization')
+@title('Edit User')
 export default class Edit extends Component {
   declare user: User
 
