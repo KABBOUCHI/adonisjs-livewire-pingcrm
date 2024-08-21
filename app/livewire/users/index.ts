@@ -1,5 +1,5 @@
 import User from '#models/user'
-import { title, url } from 'adonisjs-livewire'
+import { computed, title, url } from 'adonisjs-livewire'
 import IndexPage from '../index_page.js'
 
 @title('Users')
@@ -13,7 +13,8 @@ export default class Index extends IndexPage {
     this.role = ''
   }
 
-  async render() {
+  @computed()
+  async users() {
     const users = await User.query()
       .withScopes((s) =>
         s.filter({
@@ -25,8 +26,10 @@ export default class Index extends IndexPage {
 
     users.baseUrl('/users')
 
-    return this.view.render('livewire/users/index', {
-      users,
-    })
+    return users
+  }
+
+  async render() {
+    return this.view.render('livewire/users/index')
   }
 }
