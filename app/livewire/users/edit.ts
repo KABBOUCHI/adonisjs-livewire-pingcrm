@@ -50,6 +50,13 @@ export default class Edit extends Component {
   }
 
   async destroy() {
+    if (this.user.isDemoUser()) {
+      this.ctx.session.flash('error', 'Deleting the demo user is not allowed.')
+      this.skipRender()
+      this.redirect('/users')
+      return
+    }
+
     await this.user.delete()
 
     this.ctx.session.flash('success', 'User deleted.')

@@ -41,4 +41,8 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime | null
+
+  isDemoUser() {
+    return this.email === 'johndoe@example.com'
+  }
 }
