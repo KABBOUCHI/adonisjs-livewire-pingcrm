@@ -35,7 +35,7 @@ export default class Create extends Component {
   async store() {
     await Contact.create({
       ...(await validator.validate(this.form)),
-      accountId: this.ctx.auth.user!.id,
+      accountId: this.ctx.auth.user!.accountId,
     })
     this.ctx.session.flash('success', 'Organization created.')
     this.skipRender()

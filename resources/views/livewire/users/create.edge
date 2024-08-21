@@ -1,16 +1,12 @@
 <div>
-
 <h1 class="mb-8 text-3xl font-bold">
     <a wire:navigate class="text-indigo-400 hover:text-indigo-600" href="/users">Users</a>
-    <span class="text-indigo-400 font-medium">/</span>
-
-    {{ form.fullName }}
+    <span class="text-indigo-400 font-medium">/</span> Create
 </h1>
-
 <div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
-    <form wire:submit="update">
+    <form wire:submit="store">
     <div class="flex flex-wrap -mb-8 -mr-6 p-8">
-        <x-text-input wire:model="form.fullName" name="fullName" class="pb-8 pr-6 w-full lg:w-1/2" label="FUll Name" />
+        <x-text-input wire:model="form.fullName" name="fullName" class="pb-8 pr-6 w-full lg:w-1/2" label="Full Name" />
         <x-text-input wire:model="form.email" name="email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
         <x-select-input wire:model="form.owner" name="owner" class="pb-8 pr-6 w-full lg:w-1/2" label="Owner">
             <option></option>
@@ -21,14 +17,7 @@
             autocomplete="new-password" />
     </div>
     <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
-         <button class="text-red-600 hover:underline" tabindex="-1" type="button"
-            wire:click="destroy"
-            wire:confirm="Are you sure you want to delete this user?"
-            >
-            Delete User
-         </button>
-
-         <x-loading-button class="btn-indigo ml-auto" type="submit">Update User</x-loading-button>
+        <x-loading-button class="btn-indigo" type="submit">Create User</x-loading-button>
     </div>
     </form>
 </div>

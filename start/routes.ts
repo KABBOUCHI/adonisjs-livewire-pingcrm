@@ -21,6 +21,7 @@ router
     router.livewire('/contacts/:id/edit', 'contacts.edit')
     router.livewire('/reports')
     router.livewire('/users')
+    router.livewire('/users/create')
     router.livewire('/users/:id/edit', 'users.edit')
 
     router.get('/logout', async ({ auth, response }) => {
