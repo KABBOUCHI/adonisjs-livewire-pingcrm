@@ -1,29 +1,17 @@
 import Contact from '#models/contact'
-import { Component, title, url } from 'adonisjs-livewire'
+import { title } from 'adonisjs-livewire'
+import IndexPage from '../index_page.js'
 
 @title('Contacts')
-export default class Index extends Component {
-  @url()
-  page = 1
-
-  setPage(page: number) {
-    this.page = page
-  }
-
-  filters: any = {
-    search: '',
-  }
-
-  reset() {
-    this.filters = {
-      search: '',
-    }
-  }
-
+export default class Index extends IndexPage {
   async render() {
     const contacts = await Contact.query()
       .preload('organization')
-      .withScopes((s) => s.filter(this.filters))
+      .withScopes((s) =>
+        s.filter({
+          search: this.search,
+        })
+      )
       .paginate(this.page, 10)
 
     contacts.baseUrl('/contacts')

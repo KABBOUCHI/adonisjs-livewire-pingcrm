@@ -1,30 +1,26 @@
 import User from '#models/user'
-import { Component, title, url } from 'adonisjs-livewire'
+import { title, url } from 'adonisjs-livewire'
+import IndexPage from '../index_page.js'
 
 @title('Users')
-export default class Index extends Component {
+export default class Index extends IndexPage {
   @url()
-  page = 1
-
-  setPage(page: number) {
-    this.page = page
-  }
-
-  filters: any = {
-    search: '',
-    role: '',
-  }
+  role = ''
 
   reset() {
-    this.filters = {
-      search: '',
-      role: '',
-    }
+    super.reset()
+
+    this.role = ''
   }
 
   async render() {
     const users = await User.query()
-      .withScopes((s) => s.filter(this.filters))
+      .withScopes((s) =>
+        s.filter({
+          search: this.search,
+          role: this.role,
+        })
+      )
       .paginate(this.page, 10)
 
     users.baseUrl('/users')

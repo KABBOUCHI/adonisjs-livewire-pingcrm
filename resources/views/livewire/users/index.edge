@@ -2,10 +2,10 @@
     <h1 class="mb-8 text-3xl font-bold">Users</h1>
 
     <div class="flex items-center justify-between mb-6">
-      <x-search-filter wire:model.live="filters.search" class="mr-4 w-full max-w-md">
+      <x-search-filter wire:model.live="search" class="mr-4 w-full max-w-md">
         <x-slot name="dropdown">
            <label class="block text-gray-700">Role:</label>
-            <select wire:model.live="filters.role" class="form-select mt-1 w-full">
+            <select wire:model.live="role" class="form-select mt-1 w-full">
                 <option value="" />
                 <option value="user">User</option>
                 <option value="owner">Owner</option>
