@@ -3,17 +3,21 @@ import { Component, title } from 'adonisjs-livewire'
 
 @title('Users')
 export default class Index extends Component {
-  form = {
+  filters: any = {
     search: '',
+    role: '',
   }
 
   reset() {
-    this.form.search = ''
+    this.filters = {
+      search: '',
+      role: '',
+    }
   }
 
   async render() {
     const users = await User.query()
-      .if(this.form.search, (q) => q.where('full_name', 'LIKE', `%${this.form.search}%`))
+      .withScopes((s) => s.filter(this.filters))
       .paginate(1, 10)
 
     return this.view.render('livewire/users/index', {

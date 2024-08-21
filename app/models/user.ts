@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, scope } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import { DbRememberMeTokensProvider } from '@adonisjs/auth/session'
 import Account from './account.js'
@@ -14,6 +14,31 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
 
 export default class User extends compose(BaseModel, AuthFinder) {
   static rememberMeTokens = DbRememberMeTokensProvider.forModel(User)
+
+  static whereRole = scope((query, role: string) => {
+    switch (role) {
+      case 'user':
+        return query.where('owner', false)
+      case 'owner':
+        return query.where('owner', true)
+    }
+  })
+
+  static filter = scope((query, filters: Record<string, any>) => {
+    query
+      .if(filters.search, (q) => {
+        q.where((sq) => {
+          sq.where('full_name', 'LIKE', `%${filters.search}%`).orWhere(
+            'email',
+            'LIKE',
+            `%${filters.search}%`
+          )
+        })
+      })
+      .if(filters.role && filters.role.length > 0, (q) => {
+        q.withScopes((s) => s.whereRole(filters.role))
+      })
+  })
 
   @column({ isPrimary: true })
   declare id: number
