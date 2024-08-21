@@ -1,6 +1,6 @@
 import { Component, url } from 'adonisjs-livewire'
 
-export default class IndexPage extends Component {
+export default abstract class IndexPage extends Component {
   @url()
   page = 1
 
