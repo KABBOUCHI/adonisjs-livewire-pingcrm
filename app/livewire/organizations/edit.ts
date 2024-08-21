@@ -58,10 +58,10 @@ export default class Edit extends Component {
   async destroy() {
     await this.organization.delete()
 
-    this.ctx.session.flash('success', 'Contact deleted.')
+    this.ctx.session.flash('success', 'Organization deleted.')
 
     this.skipRender()
-    this.redirect('/organization')
+    this.redirect('/organizations')
   }
 
   async render() {

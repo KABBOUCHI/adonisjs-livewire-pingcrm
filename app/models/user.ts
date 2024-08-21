@@ -36,6 +36,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
         })
       })
       .if(filters.role && filters.role.length > 0, (q) => {
+        // @ts-ignore
         q.withScopes((s) => s.whereRole(filters.role))
       })
   })

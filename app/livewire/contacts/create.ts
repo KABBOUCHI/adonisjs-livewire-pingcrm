@@ -1,4 +1,3 @@
-import Contact from '#models/contact'
 import Organization from '#models/organization'
 import vine from '@vinejs/vine'
 import { Component, title } from 'adonisjs-livewire'
@@ -33,10 +32,7 @@ export default class Create extends Component {
   }
 
   async store() {
-    await Contact.create({
-      ...(await validator.validate(this.form)),
-      accountId: this.ctx.auth.user!.accountId,
-    })
+    this.ctx.auth.user!.account.related('contacts').create(await validator.validate(this.form))
     this.ctx.session.flash('success', 'Organization created.')
     this.skipRender()
     this.redirect('/contacts', true)

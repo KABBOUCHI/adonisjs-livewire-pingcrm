@@ -1,7 +1,17 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasMany, scope } from '@adonisjs/lucid/orm'
+import Contact from './contact.js'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
 export default class Organization extends BaseModel {
+  static filter = scope((query, filters: Record<string, any>) => {
+    query.if(filters.search, (q) => {
+      q.where((sq) => {
+        sq.where('name', 'LIKE', `%${filters.search}%`)
+      })
+    })
+  })
+
   @column({ isPrimary: true })
   declare id: number
 
@@ -37,4 +47,7 @@ export default class Organization extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+
+  @hasMany(() => Contact)
+  declare contacts: HasMany<typeof Contact>
 }

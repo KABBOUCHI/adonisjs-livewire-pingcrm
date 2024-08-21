@@ -1,4 +1,3 @@
-import User from '#models/user'
 import vine from '@vinejs/vine'
 import { Component, title } from 'adonisjs-livewire'
 
@@ -21,10 +20,7 @@ export default class Create extends Component {
   }
 
   async store() {
-    await User.create({
-      ...(await validator.validate(this.form)),
-      accountId: this.ctx.auth.user!.accountId,
-    })
+    this.ctx.auth.user!.account.related('users').create(await validator.validate(this.form))
     this.ctx.session.flash('success', 'User created.')
     this.skipRender()
     this.redirect('/users', true)
