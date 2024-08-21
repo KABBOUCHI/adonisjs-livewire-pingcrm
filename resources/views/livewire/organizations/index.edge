@@ -23,18 +23,18 @@
           <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
             <td class="border-t">
               <a class="flex items-center px-6 py-4 focus:text-indigo-500" wire:navigate href="/organizations/{{organization.id}}/edit">
-                {{ organization.name }}
+                {{ organization.name || '-' }}
                 <icon v-if="organization.deleted_at" name="trash" class="shrink-0 ml-2 w-3 h-3 fill-gray-400" />
               </a>
             </td>
             <td class="border-t">
                 <a class="flex items-center px-6 py-4" wire:navigate href="/organizations/{{organization.id}}/edit" tabindex="-1">
-                {{ organization.city }}
+                {{ organization.city || '-' }}
               </a>
             </td>
             <td class="border-t">
                 <a class="flex items-center px-6 py-4" wire:navigate href="/organizations/{{organization.id}}/edit" tabindex="-1">
-                {{ organization.phone }}
+                {{ organization.phone || '-' }}
               </a>
             </td>
             <td class="w-px border-t">
