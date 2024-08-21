@@ -34,6 +34,13 @@ export default class Edit extends Component {
   }
 
   async update() {
+    if (this.user.isDemoUser()) {
+      this.ctx.session.flash('error', 'Updating the demo user is not allowed.')
+      this.skipRender()
+      this.redirect('/users')
+      return
+    }
+
     const data = await validator.validate(this.form)
 
     if (!data.password) {
