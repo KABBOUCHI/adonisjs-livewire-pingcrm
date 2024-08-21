@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, computed } from '@adonisjs/lucid/orm'
+import Organization from './organization.js'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Contact extends BaseModel {
   @column({ isPrimary: true })
@@ -10,6 +12,9 @@ export default class Contact extends BaseModel {
 
   @column()
   declare organizationId: number | null
+
+  @belongsTo(() => Organization)
+  declare organization: BelongsTo<typeof Organization>
 
   @column()
   declare firstName: string
@@ -43,4 +48,9 @@ export default class Contact extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+
+  @computed()
+  get name() {
+    return `${this.firstName} ${this.lastName}`
+  }
 }

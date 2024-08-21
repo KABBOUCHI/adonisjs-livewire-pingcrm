@@ -1,0 +1,38 @@
+<div>
+
+<h1 class="mb-8 text-3xl font-bold">
+    <a wire:navigate class="text-indigo-400 hover:text-indigo-600" href="/contacts">Contacts</a>
+    <span class="text-indigo-400 font-medium">/</span>
+
+    {{ form.firstName }} {{ form.lastName }}
+</h1>
+
+<div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
+    <form wire:submit="update">
+    <div class="flex flex-wrap -mb-8 -mr-6 p-8">
+        <x-text-input wire:model="form.firstName" name="firstName" class="pb-8 pr-6 w-full lg:w-1/2" label="First Name" />
+        <x-text-input wire:model="form.lastName" name="lastName" class="pb-8 pr-6 w-full lg:w-1/2" label="Last Name" />
+        <x-select-input wire:model="form.organizationId" name="organizationId" class="pb-8 pr-6 w-full lg:w-1/2" label="Organization">
+            <option></option>
+            @each(organization in organizations)
+                <option value="{{ organization.id }}">{{ organization.name }}</option>
+            @end
+        </x-select-input>
+        <x-text-input wire:model="form.email" name="email" class="pb-8 pr-6 w-full lg:w-1/2" label="Email" />
+        <x-text-input wire:model="form.phone" name="phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
+        <x-text-input wire:model="form.address" name="address" class="pb-8 pr-6 w-full lg:w-1/2" label="Address" />
+        <x-text-input wire:model="form.city" name="city" class="pb-8 pr-6 w-full lg:w-1/2" label="City" />
+        <x-text-input wire:model="form.region" name="region" class="pb-8 pr-6 w-full lg:w-1/2" label="Province/State" />
+        <x-select-input wire:model="form.country" name="country" class="pb-8 pr-6 w-full lg:w-1/2" label="Country">
+            <option></option>
+            <option value="CA">Canada</option>
+            <option value="US">United States</option>
+        </x-select-input>
+        <x-text-input wire:model="form.postalCode" :label="postalCode" class="pb-8 pr-6 w-full lg:w-1/2" label="Postal code" />
+    </div>
+    <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
+        <x-loading-button class="btn-indigo" type="submit">Update Organization</x-loading-button>
+    </div>
+    </form>
+</div>
+</div>

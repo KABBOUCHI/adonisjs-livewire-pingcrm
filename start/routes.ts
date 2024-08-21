@@ -17,6 +17,8 @@ router
     router.livewire('/organizations/create')
     router.livewire('/organizations/:id/edit', 'organizations.edit')
     router.livewire('/contacts')
+    router.livewire('/contacts/create')
+    router.livewire('/contacts/:id/edit', 'contacts.edit')
     router.livewire('/reports')
     router.livewire('/users')
     router.livewire('/users/:id/edit', 'users.edit')
