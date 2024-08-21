@@ -40,7 +40,7 @@ node ace db:seed
 Run the dev server:
 
 ```sh
-pnpm start
+pnpm dev
 ```
 
 You're ready to go! Visit Ping CRM in your browser, and login with:
