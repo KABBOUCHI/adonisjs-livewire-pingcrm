@@ -6,11 +6,22 @@
   <div class="grid grid-cols-12 gap-6">
     <x-card class="col-span-12">
       <p>
-        Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how <b>adonisjs-livewire </b>works.
+        Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how
+
+                <a
+          class="text-indigo-600 hover:underline"
+          href="https://github.com/KABBOUCHI/adonisjs-livewire"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <b>adonisjs-livewire </b>
+        </a>
+
+        works.
       </p>
     </x-card>
 
-    <x-card class="col-span-4">
+    <x-card class="col-span-3">
       <div class="flex items-center gap-x-3">
         <img
           class="fi-avatar object-cover object-center fi-circular rounded-full h-10 w-10 fi-user-avatar"
@@ -35,7 +46,7 @@
       </div>
     </x-card>
 
-    <x-card class="col-span-4">
+    <x-card class="col-span-3">
       <div class="flex items-center gap-x-3">
         <div class="flex-1">
           <a href="https://adonisjs.com" rel="noopener noreferrer" target="_blank">
@@ -55,7 +66,7 @@
       </div>
     </x-card>
 
-    <x-card class="col-span-4">
+    <x-card class="col-span-3">
       <div class="flex items-center gap-x-3">
         <div class="flex-1">
           <a href="https://github.com/KABBOUCHI/adonisjs-livewire" rel="noopener noreferrer" target="_blank">
@@ -72,6 +83,25 @@
         <button wire:click="confetti" class="btn">
           🎉
                 </button>
+      </div>
+    </x-card>
+
+    <x-card class="col-span-3">
+      <div class="flex items-center gap-x-3">
+        <div class="flex-1">
+          <a
+            href="https://github.com/KABBOUCHI/adonisjs-livewire-pingcrm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <h2 class="text-base font-semibold leading-6 text-gray-950">
+              Demo Source Code
+            </h2>
+          </a>
+          <p class="mt-2 text-xs text-gray-500">
+            This demo is based on the original PingCRM project. Credits to the creators of Inertia.js.
+          </p>
+        </div>
       </div>
     </x-card>
 
