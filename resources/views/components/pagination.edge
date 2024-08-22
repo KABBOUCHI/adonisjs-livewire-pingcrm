@@ -2,21 +2,21 @@
 <div {{ $props.only(['class']).toAttrs() }}>
     <div class="flex flex-wrap -mb-1">
 
-        <a  class="{{ paginator.currentPage === 1 ? 'mb-1 mr-1 px-4 py-3 text-gray-400 text-sm leading-4 border rounded' : 'cursor-pointer mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded'}}">
+        <button wire:click="setPage({{ paginator.currentPage - 1 }})"  {{ paginator.currentPage === 1 ? 'disabled' : '' }}   class="{{ paginator.currentPage === 1 ? 'mb-1 mr-1 px-4 py-3 text-gray-400 text-sm leading-4 border rounded' : 'mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded'}}">
             « Previous
-        </a>
+        </button>
 
       @each(anchor in paginator.getUrlsForRange(1, paginator.lastPage))
-        <a
+        <button
             wire:click="setPage({{ anchor.page }})"
-            class="cursor-pointer mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded {{ anchor.isActive ? 'bg-white' : '' }}">
+            class="mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded {{ anchor.isActive ? 'bg-white' : '' }}">
                 {{ anchor.page }}
-        </a>
+        </button>
       @endeach
 
-      <a  class="{{ paginator.currentPage >= paginator.lastPage ? 'mb-1 mr-1 px-4 py-3 text-gray-400 text-sm leading-4 border rounded' : 'cursor-pointer mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded'}}">
+      <button  wire:click="setPage({{ paginator.currentPage + 1 }})" {{ paginator.currentPage >= paginator.lastPage  ? 'disabled' : '' }} class="{{ paginator.currentPage >= paginator.lastPage ? 'mb-1 mr-1 px-4 py-3 text-gray-400 text-sm leading-4 border rounded' : 'mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded'}}">
             Next »
-        </a>
+      </button>
     </div>
 </div>
 @endif

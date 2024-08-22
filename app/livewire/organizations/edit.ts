@@ -50,9 +50,6 @@ export default class Edit extends Component {
     await this.organization.save()
 
     this.ctx.session.flash('success', 'Organization updated.')
-
-    this.skipRender()
-    this.redirect('/organizations')
   }
 
   async destroy() {
@@ -65,6 +62,8 @@ export default class Edit extends Component {
   }
 
   async render() {
+    await this.organization.load('contacts')
+
     return this.view.render('livewire/organizations/edit')
   }
 }

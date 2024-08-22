@@ -1,5 +1,7 @@
 <div>
 
+<x-flash-messages />
+
 <h1 class="mb-8 text-3xl font-bold">
     <a wire:navigate class="text-indigo-400 hover:text-indigo-600" href="/organizations">Organizations</a>
     <span class="text-indigo-400 font-medium">/</span>
@@ -34,5 +36,51 @@
          <x-loading-button class="btn-indigo ml-auto" type="submit">Update Organization</x-loading-button>
     </div>
     </form>
+</div>
+
+  <h2 class="mt-12 text-2xl font-bold">Contacts</h2>
+
+
+    <div class="mt-6 bg-white rounded shadow overflow-x-auto">
+      <table class="w-full whitespace-nowrap">
+        <thead>
+          <tr class="text-left font-bold">
+            <th class="pb-4 pt-6 px-6">Name</th>
+            <th class="pb-4 pt-6 px-6">City</th>
+            <th class="pb-4 pt-6 px-6" colspan="2">Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+        @each(contact in organization.contacts)
+          <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
+            <td class="border-t">
+              <a class="flex items-center px-6 py-4 focus:text-indigo-500" wire:navigate href="/contacts/{{contact.id}}/edit">
+                {{ contact.name || '-' }}
+              </a>
+            </td>
+            <td class="border-t">
+                <a class="flex items-center px-6 py-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+                {{ contact.city || '-' }}
+              </a>
+            </td>
+            <td class="border-t">
+                <a class="flex items-center px-6 py-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+                {{ contact.phone || '-' }}
+              </a>
+            </td>
+            <td class="w-px border-t">
+                <a class="flex items-center px-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+                <x-icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
+              </a>
+            </td>
+          </tr>
+        @else
+          <tr>
+            <td class="px-6 py-4 border-t" colspan="4">No contacts found.</td>
+          </tr>
+        @end
+        </tbody>
+      </table>
+    </div>
 </div>
 </div>
