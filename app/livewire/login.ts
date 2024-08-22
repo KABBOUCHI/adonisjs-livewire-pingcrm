@@ -24,7 +24,7 @@ export default class Login extends Component {
 
     await this.ctx.auth.use('web').login(await User.verifyCredentials(email, password), remember)
 
-    this.redirect('/')
+    this.redirect('/', true)
   }
 
   async render() {

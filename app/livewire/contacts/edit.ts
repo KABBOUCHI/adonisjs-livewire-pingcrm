@@ -59,7 +59,7 @@ export default class Edit extends Component {
     this.ctx.session.flash('success', 'Contact updated.')
 
     this.skipRender()
-    this.redirect('/contacts')
+    this.redirect('/contacts', true)
   }
 
   async destroy() {
@@ -68,7 +68,7 @@ export default class Edit extends Component {
     this.ctx.session.flash('success', 'Contact deleted.')
 
     this.skipRender()
-    this.redirect('/contacts')
+    this.redirect('/contacts', true)
   }
 
   async render() {

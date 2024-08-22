@@ -58,7 +58,7 @@ export default class Edit extends Component {
     this.ctx.session.flash('success', 'Organization deleted.')
 
     this.skipRender()
-    this.redirect('/organizations')
+    this.redirect('/organizations', true)
   }
 
   async render() {
