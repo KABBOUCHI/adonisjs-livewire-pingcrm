@@ -1,5 +1,6 @@
-import { Component, computed } from 'adonisjs-livewire'
+import { Component, lazy } from 'adonisjs-livewire'
 
+@lazy()
 export default class Stat extends Component {
   title = 'Stat'
   classes = ''
@@ -11,12 +12,13 @@ export default class Stat extends Component {
     this.prefix = props.prefix || ''
   }
 
-  @computed()
-  value() {
+  get value() {
     return (Math.random() * 1000).toFixed(2).toLocaleString()
   }
 
   async render() {
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+
     return /* html */ `<x-card :class="classes">
       <div class="space-y-4">
           <div class="flex items-center gap-x-2">
@@ -30,5 +32,9 @@ export default class Stat extends Component {
           </div>
       </div>
    </x-card>`
+  }
+
+  async placeholder() {
+    return this.ctx.view.render('components/stat-placeholder')
   }
 }
