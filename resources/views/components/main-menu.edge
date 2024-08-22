@@ -1,28 +1,48 @@
 @let(isUrl = (url) => url === '/' ? request.url() === url : request.url().startsWith(url))
 
 <div {{ $props.toAttrs() }}>
-    <div class="mb-4">
-      <a wire:navigate class="group flex items-center py-3" href="/">
-        <x-icon name="dashboard" class="mr-2 w-4 h-4 {{ isUrl('/') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}" />
-        <div class="{{ isUrl('/') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">Dashboard</div>
-      </a>
-    </div>
-    <div class="mb-4">
-      <a wire:navigate class="group flex items-center py-3" href="/organizations">
-        <x-icon name="office" class="mr-2 w-4 h-4 {{ isUrl('/organizations') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}" />
-        <div class="{{ isUrl('/organizations') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">Organizations</div>
-      </a>
-    </div>
-    <div class="mb-4">
-      <a wire:navigate class="group flex items-center py-3" href="/contacts">
-        <x-icon name="users" class="mr-2 w-4 h-4 {{ isUrl('/contacts') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}" />
-        <div class="{{ isUrl('/contacts') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">Contacts</div>
-      </a>
-    </div>
-    <div class="mb-4">
-      <a wire:navigate class="group flex items-center py-3" href="/reports">
-        <x-icon name="printer" class="mr-2 w-4 h-4 {{ isUrl('/reports') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}" />
-        <div class="{{ isUrl('/reports') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">Reports</div>
-      </a>
-    </div>
+  <div class="mb-4">
+    <a wire:navigate class="group flex items-center py-3" href="/">
+      <x-icon
+        name="dashboard"
+        class="mr-2 w-4 h-4 {{ isUrl('/') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}"
+      />
+      <div class="{{ isUrl('/') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">
+        Dashboard
+      </div>
+    </a>
   </div>
+  <div class="mb-4">
+    <a wire:navigate class="group flex items-center py-3" href="/organizations">
+      <x-icon
+        name="office"
+        class="mr-2 w-4 h-4 {{ isUrl('/organizations') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}"
+      />
+      <div class="{{ isUrl('/organizations') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">
+        Organizations
+      </div>
+    </a>
+  </div>
+  <div class="mb-4">
+    <a wire:navigate class="group flex items-center py-3" href="/contacts">
+      <x-icon
+        name="users"
+        class="mr-2 w-4 h-4 {{ isUrl('/contacts') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}"
+      />
+      <div class="{{ isUrl('/contacts') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">
+        Contacts
+      </div>
+    </a>
+  </div>
+  <div class="mb-4">
+    <a wire:navigate class="group flex items-center py-3" href="/reports">
+      <x-icon
+        name="printer"
+        class="mr-2 w-4 h-4 {{ isUrl('/reports') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white' }}"
+      />
+      <div class="{{ isUrl('/reports') ? 'text-white' : 'text-indigo-300 group-hover:text-white' }}">
+        Reports
+      </div>
+    </a>
+  </div>
+</div>

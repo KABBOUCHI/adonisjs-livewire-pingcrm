@@ -1,15 +1,24 @@
 <div x-data="{ show: false }" class="relative flex">
-    <button type="button" @click="show = !show" {{ $props.only(['class']).toAttrs() }}>
-      {{{ await $slots.main() }}}
+  <button type="button" @click="show = !show" {{ $props.only(['class']).toAttrs() }}>
+    {{{ await $slots.main() }}}
     </button>
 
-    <div x-show="show" x-cloak style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; z-index: 99998; background: black; opacity: 0.2"
-        @click="show = false" >
-    </div>
+  <div
+    x-show="show"
+    x-cloak
+    style="position: fixed; top: 0; right: 0; left: 0; bottom: 0; z-index: 99998; background: black; opacity: 0.2"
+    @click="show = false"
+  >
+  </div>
 
-    <div x-show="show" @click.away="show = false" class="absolute top-0 z-[99998] min-w-[150px] mt-6 {{ placement === 'bottom-start' ? 'left-0' : 'right-0' }}" x-cloak>
-        <div  @click.stop="show = !autoClose">
-            {{{ await $slots.dropdown() }}}
-        </div>
+  <div
+    x-show="show"
+    @click.away="show = false"
+    class="absolute top-0 z-[99998] min-w-[150px] mt-6 {{ placement === 'bottom-start' ? 'left-0' : 'right-0' }}"
+    x-cloak
+  >
+    <div @click.stop="show = !autoClose">
+      {{{ await $slots.dropdown() }}}
     </div>
+  </div>
 </div>

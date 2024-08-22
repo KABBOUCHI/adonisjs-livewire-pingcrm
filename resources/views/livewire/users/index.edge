@@ -1,63 +1,80 @@
 <div>
-    <h1 class="mb-8 text-3xl font-bold">Users</h1>
+  <h1 class="mb-8 text-3xl font-bold">
+    Users
+  </h1>
 
-    <div class="flex items-center justify-between mb-6">
-      <x-search-filter wire:model.live="search" class="mr-4 w-full max-w-md">
-        <x-slot name="dropdown">
-           <label class="block text-gray-700">Role:</label>
-            <select wire:model.live="role" class="form-select mt-1 w-full">
-                <option value="" />
-                <option value="user">User</option>
-                <option value="owner">Owner</option>
-            </select>
-        </x-slot>
-      </x-search-filter>
+  <div class="flex items-center justify-between mb-6">
+    <x-search-filter wire:model.live="search" class="mr-4 w-full max-w-md">
+      <x-slot name="dropdown">
+        <label class="block text-gray-700">Role:</label>
+        <select wire:model.live="role" class="form-select mt-1 w-full">
+          <option value="" />
+          <option value="user">
+            User
+          </option>
+          <option value="owner">
+            Owner
+          </option>
+        </select>
+      </x-slot>
+    </x-search-filter>
 
-      <a class="btn-indigo" wire:navigate href="/users/create">
-        <span>Create</span>
-        <span class="hidden md:inline">&nbsp;User</span>
-      </a>
-    </div>
-    <div class="bg-white rounded-md shadow overflow-x-auto">
-      <table class="w-full whitespace-nowrap">
-        <thead>
-          <tr class="text-left font-bold">
-            <th class="pb-4 pt-6 px-6">Name</th>
-            <th class="pb-4 pt-6 px-6">Email</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Role</th>
-          </tr>
-        </thead>
-        <tbody>
+    <a class="btn-indigo" wire:navigate href="/users/create">
+      <span>Create</span>
+      <span class="hidden md:inline">&nbsp;User</span>
+    </a>
+  </div>
+  <div class="bg-white rounded-md shadow overflow-x-auto">
+    <table class="w-full whitespace-nowrap">
+      <thead>
+        <tr class="text-left font-bold">
+          <th class="pb-4 pt-6 px-6">
+            Name
+          </th>
+          <th class="pb-4 pt-6 px-6">
+            Email
+          </th>
+          <th class="pb-4 pt-6 px-6" colspan="2">
+            Role
+          </th>
+        </tr>
+      </thead>
+      <tbody>
         @each(user in users)
           <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
             <td class="border-t">
-              <a class="flex items-center px-6 py-4 focus:text-indigo-500" wire:navigate href="/users/{{user.id}}/edit">
-                  {{ user.fullName }}
-              </a>
+              <a
+                class="flex items-center px-6 py-4 focus:text-indigo-500"
+                wire:navigate
+                href="/users/{{ user.id }}/edit"
+              >
+                {{ user.fullName }}
+            </a>
             </td>
             <td class="border-t">
-                <a class="flex items-center px-6 py-4" wire:navigate href="/users/{{user.id}}/edit" tabindex="-1">
-                {{ user.email  }}
-              </a>
+              <a class="flex items-center px-6 py-4" wire:navigate href="/users/{{ user.id }}/edit" tabindex="-1">
+                {{ user.email }}
+            </a>
             </td>
             <td class="border-t">
-                <a class="flex items-center px-6 py-4" wire:navigate href="/users/{{user.id}}/edit" tabindex="-1">
-                  {{ user.owner ? 'Owner' : 'User' }}
-              </a>
+              <a class="flex items-center px-6 py-4" wire:navigate href="/users/{{ user.id }}/edit" tabindex="-1">
+                {{ user.owner ? 'Owner' : 'User' }}
+            </a>
             </td>
             <td class="w-px border-t">
-                <a class="flex items-center px-4" wire:navigate href="/users/{{user.id}}/edit" tabindex="-1">
-                <x-icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
+              <a class="flex items-center px-4" wire:navigate href="/users/{{ user.id }}/edit" tabindex="-1">                <x-icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
               </a>
             </td>
           </tr>
         @else
           <tr>
-            <td class="px-6 py-4 border-t" colspan="4">No users found.</td>
+            <td class="px-6 py-4 border-t" colspan="4">
+              No users found.
+            </td>
           </tr>
         @end
-        </tbody>
-      </table>
-    </div>
-    <x-pagination class="mt-6" :paginator="users" />
+      </tbody>
+    </table>
+  </div>
+  <x-pagination class="mt-6" :paginator="users" />
 </div>

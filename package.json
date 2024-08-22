@@ -49,6 +49,7 @@
     "pino-pretty": "^11.2.2",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
+    "prettier-edgejs": "^0.2.21",
     "tailwindcss": "^3.4.10",
     "ts-node": "^10.9.2",
     "typescript": "~5.5",
@@ -89,5 +90,17 @@
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/app"
   },
-  "prettier": "@adonisjs/prettier-config"
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100,
+    "plugins": [
+      "prettier-edgejs"
+    ]
+  }
 }

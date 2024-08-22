@@ -1,15 +1,22 @@
 @let(id = Math.random().toString(36).substring(7))
 
 <div {{ $props.only(['class']).toAttrs() }}>
-    @if(label)
-     <label class="form-label" for="{{ id }}">{{ label }}:</label>
-    @end
+  @if(label)
+    <label class="form-label" for="{{ id }}">{{ label }}:</label>
+  @end
+  
+  <input
+    id="{{ id }}"
+    class="form-input {{ error ? 'error' : '' }}"
+    type="{{ type ?? 'text' }}"
+    {{ $props.except(['class']).toAttrs() }}
+  />
 
-    <input id="{{ id }}" {{ $props.except(['class']).toAttrs() }} class="form-input {{ error ? 'error' : '' }}" type="{{ type ?? 'text' }}" />
-
-    @if(name)
-        @inputError(name)
-            <div  class="form-error">{{ $messages[0] }}</div>
-        @end
+  @if(name)
+    @inputError(name)
+      <div class="form-error">
+        {{ $messages[0] }}
+      </div>
     @end
+  @end
 </div>

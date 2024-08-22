@@ -1,5 +1,6 @@
 <button {{ $props.merge({ class: ['flex items-center'] }).toAttrs() }}>
-    <div wire:loading.class="btn-spinner mr-2"> </div>
+  <div wire:loading.class="btn-spinner mr-2">
+  </div>
 
-    {{{ await $slots.main() }}}
+  {{{ await $slots.main() }}}
 </button>

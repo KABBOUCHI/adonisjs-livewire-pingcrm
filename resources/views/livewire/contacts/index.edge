@@ -1,62 +1,98 @@
 <div>
-    <h1 class="mb-8 text-3xl font-bold">Contacts</h1>
+  <h1 class="mb-8 text-3xl font-bold">
+    Contacts
+  </h1>
 
-    <div class="flex items-center justify-between mb-6">
-      <x-search-filter wire:model.live="search" class="mr-4 w-full max-w-md" />
+  <div class="flex items-center justify-between mb-6">
+    <x-search-filter wire:model.live="search" class="mr-4 w-full max-w-md" />
 
-      <a class="btn-indigo" wire:navigate href="/contacts/create">
-        <span>Create</span>
-        <span class="hidden md:inline">&nbsp;Contact</span>
-      </a>
-    </div>
-    <div class="bg-white rounded-md shadow overflow-x-auto">
-      <table class="w-full whitespace-nowrap">
-        <thead>
-          <tr class="text-left font-bold">
-            <th class="pb-4 pt-6 px-6">Name</th>
-            <th class="pb-4 pt-6 px-6">Organization</th>
-            <th class="pb-4 pt-6 px-6">City</th>
-            <th class="pb-4 pt-6 px-6" colspan="2">Phone</th>
-          </tr>
-        </thead>
-        <tbody>
+    <a class="btn-indigo" wire:navigate href="/contacts/create">
+      <span>Create</span>
+      <span class="hidden md:inline">&nbsp;Contact</span>
+    </a>
+  </div>
+  <div class="bg-white rounded-md shadow overflow-x-auto">
+    <table class="w-full whitespace-nowrap">
+      <thead>
+        <tr class="text-left font-bold">
+          <th class="pb-4 pt-6 px-6">
+            Name
+          </th>
+          <th class="pb-4 pt-6 px-6">
+            Organization
+          </th>
+          <th class="pb-4 pt-6 px-6">
+            City
+          </th>
+          <th class="pb-4 pt-6 px-6" colspan="2">
+            Phone
+          </th>
+        </tr>
+      </thead>
+      <tbody>
         @each(contact in contacts)
           <tr class="hover:bg-gray-100 focus-within:bg-gray-100">
             <td class="border-t">
-              <a class="flex items-center px-6 py-4 focus:text-indigo-500" wire:navigate href="/contacts/{{contact.id}}/edit">
+              <a
+                class="flex items-center px-6 py-4 focus:text-indigo-500"
+                wire:navigate
+                href="/contacts/{{ contact.id }}/edit"
+              >
                 {{ contact.name || '-' }}
               </a>
             </td>
-               <td class="border-t">
-            <a class="flex items-center px-6 py-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
-              <div v-if="contact.organization">
-                {{ contact.organization?.name  || '-'}}
-              </div>
-            </a>
-          </td>
             <td class="border-t">
-                <a class="flex items-center px-6 py-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+              <a
+                class="flex items-center px-6 py-4"
+                wire:navigate
+                href="/contacts/{{ contact.id }}/edit"
+                tabindex="-1"
+              >
+                <div v-if="contact.organization">
+                  {{ contact.organization?.name  || '-' }}
+                </div>
+              </a>
+            </td>
+            <td class="border-t">
+              <a
+                class="flex items-center px-6 py-4"
+                wire:navigate
+                href="/contacts/{{ contact.id }}/edit"
+                tabindex="-1"
+              >
                 {{ contact.city || '-' }}
               </a>
             </td>
             <td class="border-t">
-                <a class="flex items-center px-6 py-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+              <a
+                class="flex items-center px-6 py-4"
+                wire:navigate
+                href="/contacts/{{ contact.id }}/edit"
+                tabindex="-1"
+              >
                 {{ contact.phone || '-' }}
               </a>
             </td>
             <td class="w-px border-t">
-                <a class="flex items-center px-4" wire:navigate href="/contacts/{{contact.id}}/edit" tabindex="-1">
+              <a
+                class="flex items-center px-4"
+                wire:navigate
+                href="/contacts/{{ contact.id }}/edit"
+                tabindex="-1"
+              >
                 <x-icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
               </a>
             </td>
           </tr>
         @else
           <tr>
-            <td class="px-6 py-4 border-t" colspan="4">No contacts found.</td>
+            <td class="px-6 py-4 border-t" colspan="4">
+              No contacts found.
+            </td>
           </tr>
         @end
-        </tbody>
-      </table>
-    </div>
-    <x-pagination class="mt-6" :paginator="contacts" />
+      </tbody>
+    </table>
+  </div>
+  <x-pagination class="mt-6" :paginator="contacts" />
 </div>
