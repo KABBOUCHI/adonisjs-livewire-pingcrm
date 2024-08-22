@@ -35,6 +35,9 @@ dependencies:
   adonisjs-livewire:
     specifier: ^0.5.7
     version: 0.5.7(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2)
+  canvas-confetti:
+    specifier: ^1.9.3
+    version: 1.9.3
   edge.js:
     specifier: ^6.0.2
     version: 6.0.2
@@ -2786,6 +2789,13 @@ packages:
         integrity: sha512-9Cf+Xv1jJNe1xPZLGuUXLNkE1BoDkqRqYyFJ9TDYSqhduqA4hu4oR9HluGoWYQC/aj8WHjsGVV+bwkh0+tegRg==,
       }
     dev: true
+
+  /canvas-confetti@1.9.3:
+    resolution:
+      {
+        integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==,
+      }
+    dev: false
 
   /case-anything@2.1.13:
     resolution:

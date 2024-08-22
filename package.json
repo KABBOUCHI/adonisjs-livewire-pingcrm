@@ -65,6 +65,7 @@
     "@adonisjs/vite": "^3.0.0",
     "@vinejs/vine": "^2.1.0",
     "adonisjs-livewire": "^0.5.7",
+    "canvas-confetti": "^1.9.3",
     "edge.js": "^6.0.2",
     "luxon": "^3.5.0",
     "mysql2": "^3.11.0",

@@ -2,10 +2,81 @@
   <h1 class="mb-8 text-3xl font-bold">
     Dashboard
   </h1>
-  <p class="mb-8 leading-normal">
-    Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how <a
-      class="text-indigo-500 hover:text-orange-600 underline"
-      href="https://github.com/KABBOUCHI/adonisjs-livewire"
-    >adonisjs-livewire</a>works.
-  </p>
+
+  <div class="grid grid-cols-12 gap-6">
+    <x-card class="col-span-12">
+      <p>
+        Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how <b>adonisjs-livewire </b>works.
+      </p>
+    </x-card>
+
+    <x-card class="col-span-4">
+      <div class="flex items-center gap-x-3">
+        <img
+          class="fi-avatar object-cover object-center fi-circular rounded-full h-10 w-10 fi-user-avatar"
+          src="https://ui-avatars.com/api/?name={{ auth.user.fullName[0] }}&amp;color=FFFFFF&amp;background=09090b"
+          alt="Avatar of {{ auth.user.fullName }}"
+        />
+
+        <div class="flex-1">
+          <h2 class="grid flex-1 text-base font-semibold leading-6 text-gray-950">
+            Welcome
+          </h2>
+
+          <p class="text-sm text-gray-500">
+            {{ auth.user.fullName }}
+          </p>
+
+        </div>
+
+        <x-loading-button wire:click="logout" target="logout" class="btn btn-indigo">
+          Logout
+        </x-loading-button>
+      </div>
+    </x-card>
+
+    <x-card class="col-span-4">
+      <div class="flex items-center gap-x-3">
+        <div class="flex-1">
+          <a href="https://adonisjs.com" rel="noopener noreferrer" target="_blank">
+            <h2 class="text-base font-semibold leading-6 text-gray-950">
+              AdonisJS
+            </h2>
+          </a>
+
+          <p class="mt-2 text-xs text-gray-500">
+            v6.12.1
+          </p>
+        </div>
+
+        <button @click="confetti()" class="btn">
+          🎉
+                </button>
+      </div>
+    </x-card>
+
+    <x-card class="col-span-4">
+      <div class="flex items-center gap-x-3">
+        <div class="flex-1">
+          <a href="https://github.com/KABBOUCHI/adonisjs-livewire" rel="noopener noreferrer" target="_blank">
+            <h2 class="text-base font-semibold leading-6 text-gray-950">
+              AdonisJS Livewire
+            </h2>
+          </a>
+
+          <p class="mt-2 text-xs text-gray-500">
+            v0.5.7
+          </p>
+        </div>
+
+        <button wire:click="confetti" class="btn">
+          🎉
+                </button>
+      </div>
+    </x-card>
+
+    <livewire:dashboard.stat class="col-span-4" title="Revenue" prefix="$" />
+    <livewire:dashboard.stat class="col-span-4" title="New customers" />
+    <livewire:dashboard.stat class="col-span-4" title="New orders" />
+  </div>
 </div>
