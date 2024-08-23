@@ -18,7 +18,6 @@
           {{ anchor.page }}
         </button>
       @endeach
-      
       <button
         wire:click="setPage({{ paginator.currentPage + 1 }})"
         class="{{ paginator.currentPage >= paginator.lastPage ? 'mb-1 mr-1 px-4 py-3 text-gray-400 text-sm leading-4 border rounded' : 'mb-1 mr-1 px-4 py-3 focus:text-indigo-500 text-sm leading-4 hover:bg-white border focus:border-indigo-500 rounded' }}"
