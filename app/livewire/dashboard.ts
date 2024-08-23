@@ -16,7 +16,7 @@ export default class Dashboard extends Component {
   }
 
   dd() {
-    dd(this.ctx.auth.user, this.ctx.auth.user?.account, this.ctx)
+    dd(this.ctx.auth.user, this.ctx.auth.user?.account, new Map([['foo', 'bar']]))
   }
 
   async render() {
