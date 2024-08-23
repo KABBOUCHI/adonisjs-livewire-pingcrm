@@ -17,7 +17,7 @@ export default class Stat extends Component {
   }
 
   async render() {
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await new Promise((resolve) => setTimeout(resolve, 500))
 
     return /* html */ `<x-card :class="classes">
       <div class="space-y-4">
