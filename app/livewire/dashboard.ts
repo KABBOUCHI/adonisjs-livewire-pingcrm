@@ -15,6 +15,10 @@ export default class Dashboard extends Component {
     })`)
   }
 
+  dd() {
+    dd(this.ctx.auth.user, this.ctx.auth.user?.account, this.ctx)
+  }
+
   async render() {
     return this.view.render('livewire/dashboard')
   }

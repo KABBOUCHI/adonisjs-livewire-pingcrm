@@ -5,6 +5,7 @@
 
   <div class="grid grid-cols-12 gap-6">
     <x-card class="col-span-12">
+     <div class="flex justify-between items-center gap-x-3">
       <p>
         Hey there! Welcome to Ping CRM, a demo app designed to help illustrate how
 
@@ -19,6 +20,11 @@
 
         works.
       </p>
+
+         <button wire:click="dd" target="dd" class="btn border rounded-lg p-2 hover:bg-gray-100">
+          🐛
+        </button>
+        </div>
     </x-card>
 
     <x-card class="col-span-12 lg:col-span-3">
@@ -60,7 +66,7 @@
           </p>
         </div>
 
-        <button @click="confetti()" class="btn">
+        <button @click="confetti()" class="btn border rounded-lg p-2 hover:bg-gray-100">
           🎉
                 </button>
       </div>
@@ -80,7 +86,7 @@
           </p>
         </div>
 
-        <button wire:click="confetti" class="btn">
+        <button wire:click="confetti" class="btn border rounded-lg p-2 hover:bg-gray-100">
           🎉
                 </button>
       </div>
