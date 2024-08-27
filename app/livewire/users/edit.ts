@@ -37,7 +37,6 @@ export default class Edit extends Component {
   async update() {
     if (this.user.isDemoUser()) {
       this.ctx.session.flash('error', 'Updating the demo user is not allowed.')
-      this.skipRender()
       this.redirect('/users', true)
       return
     }
@@ -53,14 +52,12 @@ export default class Edit extends Component {
 
     this.ctx.session.flash('success', 'User updated.')
 
-    this.skipRender()
     this.redirect('/users', true)
   }
 
   async destroy() {
     if (this.user.isDemoUser()) {
       this.ctx.session.flash('error', 'Deleting the demo user is not allowed.')
-      this.skipRender()
       this.redirect('/users', true)
       return
     }
@@ -69,7 +66,6 @@ export default class Edit extends Component {
 
     this.ctx.session.flash('success', 'User deleted.')
 
-    this.skipRender()
     this.redirect('/users', true)
   }
 

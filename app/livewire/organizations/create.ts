@@ -30,7 +30,7 @@ export default class Create extends Component {
   async store() {
     this.ctx.auth.user!.account.related('organizations').create(await validator.validate(this.form))
     this.ctx.session.flash('success', 'Organization created.')
-    this.skipRender()
+
     this.redirect('/organizations', true)
   }
 

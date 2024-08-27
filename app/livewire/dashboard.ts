@@ -4,7 +4,6 @@ import { Component, title } from 'adonisjs-livewire'
 export default class Dashboard extends Component {
   async logout() {
     await this.ctx.auth.use('web').logout()
-    this.skipRender()
     this.redirect('/login')
   }
 
