@@ -49,7 +49,11 @@ export default class Edit extends Component {
     this.organization.merge(await validator.validate(this.form))
     await this.organization.save()
 
-    this.ctx.session.flash('success', 'Organization updated.')
+    // this.ctx.session.flash('success', 'Organization updated.')
+
+    this.dispatch('notification-created', {
+      message: 'Organization updated.',
+    })
   }
 
   async destroy() {

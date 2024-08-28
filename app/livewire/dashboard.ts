@@ -12,6 +12,10 @@ export default class Dashboard extends Component {
       shapes: [confetti.shapeFromText({ text: 'Livewire', scalar: 5 })],
       scalar: 5,
     })`)
+
+    this.dispatch('notification-created', {
+      message: 'Confetti!',
+    })
   }
 
   dd() {

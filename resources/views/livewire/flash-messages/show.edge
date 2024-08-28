@@ -1,0 +1,34 @@
+<div
+  x-data="{
+    notify: function(message) {
+        this.$notify(message, {
+            wrapperId: 'flashMessageWrapper',
+            templateId: 'flashMessageTemplate',
+            autoClose: 3000,
+            autoRemove: true
+        })
+    }
+}"
+  x-on:notification-created.window="notify($event.detail.message)"
+
+  @flashMessage('success')
+    x-init="notify('{{ $message }}')"
+  @end
+>
+  <div id="flashMessageWrapper" class="fixed right-4 top-4 z-50 w-64 space-y-2">
+  </div>
+
+  <template id="flashMessageTemplate">
+    <div
+      x-data
+      role="alert"
+      class="data-[notify-show=true]:animate-slide-in data-[notify-show=false]:animate-slide-out mt-16 rounded-lg bg-green-500 px-4 py-3 text-white flex justify-between items-center"
+    >
+      {notificationText}
+
+        <button x-on:click="$root.setAttribute('data-notify-show', false)" class="ml-auto underline">
+            Close
+        </button>
+    </div>
+  </template>
+</div>
