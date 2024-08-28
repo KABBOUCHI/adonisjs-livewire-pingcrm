@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0
   adonisjs-livewire:
-    specifier: ^0.5.14
-    version: 0.5.14(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2)
+    specifier: ^0.5.15
+    version: 0.5.15(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2)
   canvas-confetti:
     specifier: ^1.9.3
     version: 1.9.3
@@ -1785,8 +1785,8 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /adonisjs-livewire@0.5.14(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2):
-    resolution: {integrity: sha512-MPdIQDusu3iCpg2qHiAeN8W5SyUVsJR2IuaAZRNPFqPC7lePIeHQzd3pAyas9WaArJz/AP6IHAYxx4nIesxeKw==}
+  /adonisjs-livewire@0.5.15(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2):
+    resolution: {integrity: sha512-UBAJg+1VOPJlMokET3z0PZYTOMkhxYt0Jm3z3YRj2M9Oz50Ia6szpNi8WZtWocsSN0p0zkV3XlBoAa5Kf+xsqw==}
     peerDependencies:
       '@adonisjs/core': ^6.2.2
       '@adonisjs/http-server': ^7.0.2
