@@ -107,8 +107,8 @@ devDependencies:
     specifier: ^3.3.3
     version: 3.3.3
   prettier-edgejs:
-    specifier: ^0.2.23
-    version: 0.2.23
+    specifier: ^0.2.25
+    version: 0.2.25
   tailwindcss:
     specifier: ^3.4.10
     version: 3.4.10(ts-node@10.9.2)
@@ -3587,10 +3587,10 @@ packages:
       property-information: 6.5.0
       stringify-attributes: 4.0.0
 
-  /edgejs-parser@0.2.7:
+  /edgejs-parser@0.2.8:
     resolution:
       {
-        integrity: sha512-zEqanDRTzDGL8TogAqJ8TEtlo23igqmOlomt06tNGcys0vvXcyjbjPYcZOIlP/49Bj3YRZc7YIUSXGWx7l1fbw==,
+        integrity: sha512-jDIr03Jgh3JQ2vhEP7zBljbBe44vPyd/ta3mSvYleYJjEdXUfrg4CgaoTLdkZ/h4MIydL9VxsuTWatDm4FDUyw==,
       }
     dependencies:
       chevrotain: 11.0.3
@@ -6588,14 +6588,14 @@ packages:
     engines: { node: '>= 0.8.0' }
     dev: true
 
-  /prettier-edgejs@0.2.23:
+  /prettier-edgejs@0.2.25:
     resolution:
       {
-        integrity: sha512-iOGFX2mTQJR3pxBS1spQg9KMwUvwCzgK0kGs+QNgZQy6LHIQcSAogOZNDTVGkciFVpWnAARvPdm7mVwfF0xSlw==,
+        integrity: sha512-R35B45ZYMJJfnMZgtHTNFT63pNCI+Z4kauCG8/VS20I8NHyY5dSBiEFrf/e8dFNzVwjzUrCkmPRKyJa/VgVMnA==,
       }
     dependencies:
       css: 3.0.0
-      edgejs-parser: 0.2.7
+      edgejs-parser: 0.2.8
       prettier: 3.3.3
       uglify-js: 3.19.2
     dev: true

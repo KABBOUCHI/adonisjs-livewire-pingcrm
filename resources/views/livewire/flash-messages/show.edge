@@ -10,7 +10,6 @@
     }
 }"
   x-on:notification-created.window="notify($event.detail.message)"
-
   @flashMessage('success')
     x-init="notify('{{ $message }}')"
   @end
@@ -27,7 +26,7 @@
       {notificationText}
 
         <button x-on:click="$root.setAttribute('data-notify-show', false)" class="ml-auto underline">
-            Close
+        Close
         </button>
     </div>
   </template>
