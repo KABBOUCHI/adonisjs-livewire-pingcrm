@@ -4,6 +4,10 @@ import IndexPage from '../index_page.js'
 
 @title('Contacts')
 export default class Index extends IndexPage {
+  async destroy(id: number) {
+    await Contact.query().where('id', id).delete()
+  }
+
   async render() {
     const contacts = await Contact.query()
       .preload('organization')
