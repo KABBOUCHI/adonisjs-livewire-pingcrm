@@ -1,19 +1,28 @@
-<div
-  x-show="dialogOpen"
-  x-cloak
-  @keydown.esc.window="dialogOpen = false"
-  @click.self="dialogOpen = false"
-  class="fixed inset-0 z-50 overflow-y-auto"
->
-  <div x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50" x-on:click="dialogOpen = false">
-  </div>
-
-  <div x-on:click="dialogOpen = false" class="relative flex min-h-screen items-center justify-center p-4">
+<template x-teleport="body">
+  <div
+    x-show="dialogOpen"
+    x-cloak
+    @keydown.esc.window="dialogOpen = false"
+    @click.self="dialogOpen = false"
+    class="fixed inset-0 z-50 overflow-y-auto"
+  >
     <div
-      x-on:click.stop
-      class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
+      x-transition.opacity
+      class="fixed inset-0 bg-black bg-opacity-50"
+      x-on:click="dialogOpen = false"
     >
-      {{{ await $slots.main() }}}
+    </div>
+
+    <div
+      x-on:click="dialogOpen = false"
+      class="relative flex min-h-screen items-center justify-center p-4"
+    >
+      <div
+        x-on:click.stop
+        class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
+      >
+        {{{ await $slots.main() }}}
+      </div>
     </div>
   </div>
-</div>
+</template>
