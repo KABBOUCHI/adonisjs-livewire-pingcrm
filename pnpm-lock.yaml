@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0
   adonisjs-livewire:
-    specifier: ^0.5.16
-    version: 0.5.16(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2)
+    specifier: ^0.6.0
+    version: 0.6.0(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2)
   alpinejs-notify:
     specifier: ^1.0.4
     version: 1.0.4
@@ -2351,10 +2351,10 @@ packages:
     engines: { node: '>=0.4.0' }
     hasBin: true
 
-  /adonisjs-livewire@0.5.16(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2):
+  /adonisjs-livewire@0.6.0(@adonisjs/core@6.12.1)(@adonisjs/http-server@7.2.3)(@adonisjs/lucid@21.2.0)(@adonisjs/session@7.4.2)(@adonisjs/shield@8.1.1)(edge.js@6.0.2):
     resolution:
       {
-        integrity: sha512-SQWtddsjEklwjZNnqiwSikCfFdsrtKZauWoHhJNRdbIdVt/gv2woLg4kURIr4fBDIKkTYHw8Ihn44LRSgfTuwQ==,
+        integrity: sha512-ZzjXSVJaVDlzKZ8/ZUNS4qIS8h901ihHvi09wnK/r5KIS/JsM/+zk41xq3Tmx6AbDefqSEz6ibORuFdFOWKtNA==,
       }
     peerDependencies:
       '@adonisjs/core': ^6.2.2
