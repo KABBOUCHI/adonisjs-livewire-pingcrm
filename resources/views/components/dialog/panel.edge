@@ -1,14 +1,14 @@
 <div
-  x-show="open"
+  x-show="dialogOpen"
   x-cloak
-  @keydown.esc.window="open = false"
-  @click.self="open = false"
+  @keydown.esc.window="dialogOpen = false"
+  @click.self="dialogOpen = false"
   class="fixed inset-0 z-50 overflow-y-auto"
 >
-  <div x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50" x-on:click="open = false">
+  <div x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50" x-on:click="dialogOpen = false">
   </div>
 
-  <div x-on:click="open = false" class="relative flex min-h-screen items-center justify-center p-4">
+  <div x-on:click="dialogOpen = false" class="relative flex min-h-screen items-center justify-center p-4">
     <div
       x-on:click.stop
       class="relative w-full max-w-2xl overflow-y-auto rounded-xl bg-white p-12 shadow-lg"
