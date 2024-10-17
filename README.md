@@ -1,6 +1,6 @@
 # Ping CRM
 
-A demo application to illustrate how [adonijs-livewire](https://github.com/KABBOUCHI/adonisjs-livewire) works.
+A demo application to illustrate how [adonisjs-livewire](https://github.com/KABBOUCHI/adonisjs-livewire) works.
 
 ![](https://raw.githubusercontent.com/inertiajs/pingcrm/master/screenshot.png)
 
