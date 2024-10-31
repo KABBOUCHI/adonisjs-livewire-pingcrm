@@ -1,4 +1,5 @@
 import { Component, title } from 'adonisjs-livewire'
+import { dd } from '@adonisjs/core/services/dumper'
 
 @title('Dashboard')
 export default class Dashboard extends Component {
@@ -19,7 +20,7 @@ export default class Dashboard extends Component {
   }
 
   dd() {
-    dd(this.ctx.auth.user, this.ctx.auth.user?.account, new Map([['foo', 'bar']]))
+    dd([this.ctx.auth.user, new Map([['foo', 'bar']])])
   }
 
   async render() {

@@ -32,7 +32,7 @@
     "#config/*": "./config/*.js"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^7.7.0",
+    "@adonisjs/assembler": "^7.8.2",
     "@adonisjs/eslint-config": "^1.3.0",
     "@adonisjs/prettier-config": "^1.3.0",
     "@adonisjs/tsconfig": "^1.3.0",
@@ -57,19 +57,19 @@
   },
   "dependencies": {
     "@adonisjs/auth": "^9.2.3",
-    "@adonisjs/core": "^6.12.1",
-    "@adonisjs/lucid": "^21.1.1",
-    "@adonisjs/session": "^7.4.2",
+    "@adonisjs/core": "^6.14.1",
+    "@adonisjs/lucid": "^21.3.0",
+    "@adonisjs/session": "^7.5.0",
     "@adonisjs/shield": "^8.1.1",
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^3.0.0",
     "@vinejs/vine": "^2.1.0",
-    "adonisjs-livewire": "^0.6.0",
+    "adonisjs-livewire": "^0.7.0",
     "alpinejs-notify": "^1.0.4",
     "canvas-confetti": "^1.9.3",
-    "edge.js": "^6.0.2",
+    "edge.js": "^6.2.0",
     "luxon": "^3.5.0",
-    "mysql2": "^3.11.0",
+    "mysql2": "^3.11.3",
     "reflect-metadata": "^0.2.2"
   },
   "hotHook": {
